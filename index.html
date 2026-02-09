@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Check if a shopping website is safe and trustworthy. Get instant security scores and risk analysis.">
+    <title>ShopGuard - Shopping Website Safety Checker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                        <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <span class="logo-text">ShopGuard</span>
+            </div>
+            <nav class="nav">
+                <a href="#how-it-works">How It Works</a>
+                <a href="#tips">Safety Tips</a>
+            </nav>
+        </header>
+
+        <main class="main">
+            <section class="hero">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Instant Security Analysis
+                </div>
+                <h1 class="hero-title">
+                    Is That Shopping Site <span class="gradient-text">Safe?</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Enter any e-commerce URL and get an instant safety score. 
+                    Protect yourself from scams, phishing, and fraudulent websites.
+                </p>
+
+                <div class="search-container">
+                    <div class="search-box">
+                        <div class="search-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 21L16.65 16.65M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <input 
+                            type="url" 
+                            id="urlInput" 
+                            class="search-input" 
+                            placeholder="Enter website URL (e.g., https://example-shop.com)"
+                            autocomplete="off"
+                        >
+                        <button id="checkBtn" class="check-btn">
+                            <span class="btn-text">Check Safety</span>
+                            <span class="btn-loader"></span>
+                        </button>
+                    </div>
+                    <p class="search-hint">Try: amazon.com, suspicious-deals.xyz, or any shopping website</p>
+                </div>
+            </section>
+
+            <section id="results" class="results hidden">
+                <div class="results-card">
+                    <div class="results-header">
+                        <div class="domain-info">
+                            <span class="domain-label">Analyzing</span>
+                            <h3 id="analyzedUrl" class="domain-name">example.com</h3>
+                        </div>
+                        <div class="score-ring-container">
+                            <svg class="score-ring" viewBox="0 0 120 120">
+                                <circle class="ring-bg" cx="60" cy="60" r="52"/>
+                                <circle id="scoreRing" class="ring-progress" cx="60" cy="60" r="52"/>
+                            </svg>
+                            <div class="score-value">
+                                <span id="scoreNumber" class="score-number">0</span>
+                                <span class="score-label">Score</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="verdict-section">
+                        <div id="verdictBadge" class="verdict-badge safe">
+                            <span class="verdict-icon"></span>
+                            <span id="verdictText" class="verdict-text">Safe to Shop</span>
+                        </div>
+                        <p id="verdictDescription" class="verdict-description">
+                            This website appears to be safe for online shopping.
+                        </p>
+                    </div>
+
+                    <div class="factors-section">
+                        <h4 class="factors-title">Security Analysis</h4>
+                        <div id="factorsList" class="factors-list">
+                            <!-- Factors will be inserted here -->
+                        </div>
+                    </div>
+
+                    <button id="checkAnother" class="check-another-btn">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 4V10H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3.51 15C4.15839 16.8404 5.38734 18.4202 7.01166 19.5014C8.63598 20.5826 10.5677 21.1066 12.5157 20.9945C14.4637 20.8824 16.3226 20.1402 17.8121 18.8798C19.3017 17.6193 20.3413 15.909 20.7742 14.0064C21.2072 12.1037 21.0101 10.112 20.2126 8.33111C19.4152 6.55025 18.0605 5.07687 16.3528 4.13277C14.6451 3.18868 12.6769 2.82527 10.7447 3.09712C8.81245 3.36897 7.02091 4.26142 5.64 5.64L1 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Check Another Website
+                    </button>
+                </div>
+            </section>
+
+            <section id="how-it-works" class="how-it-works">
+                <h2 class="section-title">How It Works</h2>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">01</div>
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 13C10.4295 13.5741 10.9774 14.0491 11.6066 14.3929C12.2357 14.7367 12.9315 14.9411 13.6467 14.9923C14.3618 15.0435 15.0796 14.9403 15.7513 14.6897C16.4231 14.4392 17.0331 14.047 17.54 13.54L20.54 10.54C21.4508 9.59695 21.9548 8.33394 21.9434 7.02296C21.932 5.71198 21.4061 4.45791 20.479 3.53087C19.552 2.60383 18.2979 2.07799 16.9869 2.0666C15.676 2.0552 14.413 2.55918 13.47 3.46997L11.75 5.17997" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 11C13.5705 10.4259 13.0226 9.9508 12.3934 9.60706C11.7642 9.26331 11.0684 9.05886 10.3533 9.00765C9.63816 8.95643 8.92037 9.05961 8.24861 9.3102C7.57685 9.56079 6.96684 9.95291 6.45996 10.46L3.45996 13.46C2.54917 14.403 2.04519 15.666 2.05659 16.977C2.06798 18.288 2.59382 19.542 3.52086 20.4691C4.4479 21.3961 5.70197 21.922 7.01295 21.9334C8.32393 21.9448 9.58694 21.4408 10.53 20.53L12.24 18.82" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="step-title">Enter URL</h3>
+                        <p class="step-description">Paste any shopping website URL you want to verify</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">02</div>
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="step-title">Instant Analysis</h3>
+                        <p class="step-description">Our algorithm checks multiple security factors</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">03</div>
+                        <div class="step-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="step-title">Get Safety Score</h3>
+                        <p class="step-description">Receive a detailed report with actionable insights</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tips" class="tips-section">
+                <h2 class="section-title">Stay Safe While Shopping Online</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">🔒</div>
+                        <h4>Look for HTTPS</h4>
+                        <p>Always ensure the website URL starts with "https://" - the 's' stands for secure.</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">🎯</div>
+                        <h4>Check the Domain</h4>
+                        <p>Watch for misspellings like "amaz0n" or unusual extensions like ".xyz".</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">💳</div>
+                        <h4>Use Secure Payment</h4>
+                        <p>Prefer credit cards or trusted payment services with buyer protection.</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">⭐</div>
+                        <h4>Read Reviews</h4>
+                        <p>Check for reviews on independent platforms before making purchases.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>© 2024 ShopGuard. Helping you shop safely online.</p>
+            <p class="footer-disclaimer">This tool provides guidance only. Always exercise caution when shopping online.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
